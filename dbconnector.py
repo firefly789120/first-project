@@ -33,25 +33,25 @@ def connectdb(dbcon_type,dbtype,dburl,**kwds): #字典类型，参数对
 '''
 实际使用
 #数据库操作，基于JDBC
-jdbcconn=jdbcapi.connect('com.ibm.db2.jcc.DB2Driver',['jdbc:db2://10.137.225.188:50000/YCJN_RUN','administrator','1qazXSW@'],"C:/Program Files/raqsoft/common/jdbc/db2jcc.jar")
+jdbcconn=jdbcapi.connect('com.ibm.db2.jcc.DB2Driver',['jdbc:db2://127.0.0.1:50000/db2_db','user','pw'],"/jdbc/db2jcc.jar")
 jdbcconn.close()
 
 #mongo库操作，基于pymongo
-mango_uri = 'mongodb://%s:%s' % ("10.137.225.135.", 18011)
+mango_uri = 'mongodb://%s:%s' % ("127.0.0.1.", 18011)
 mongoconn = MongoClient(mango_uri)  # 创建链接
-db = mongoconn.ZSY_NEW  # 连接数据库
-table = db.TJCXHIS_DAY  # 选择表集合
+db = mongoconn.Mongdbbane  # 连接数据库
+table = db.collectionname  # 选择表集合
 mongoconn.close()
 '''
 
 '''
 测试代码
-mango_uri = 'mongodb://%s:%s' % ("10.137.225.135.", 18011)        
+mango_uri = 'mongodb://%s:%s' % ("127.0.0.1.", 18011)        
 connectdb('pymongo','mongodb',mango_uri)  
 
 db2driver='com.ibm.db2.jcc.DB2Driver'
-db2url=['jdbc:db2://10.137.225.188:50000/YCJN_RUN','administrator','1qazXSW@']
-db2driverfile="C:/Program Files/raqsoft/common/jdbc/db2jcc.jar"
+db2url=['jdbc:db2://127.0.0.1:50000/db2_db','user','pw']
+db2driverfile="jdbc/db2jcc.jar"
 
 connectdb('jdbc','db2',db2url,dbdriver=db2driver,dbdriverfile=db2driverfile) 
 ''' 
