@@ -45,7 +45,7 @@ plt.figure(1, figsize=(13, 26))#可设定图像大小
 p = data1.boxplot(return_type= 'dict') #画箱线图，直接使用DataFrame的方法.代码到这为止,就已经可以显示带有异常值的箱型图了,但为了标注出异常值的数值,还需要以下代码进行标注.
 #for i in range(0,4):
 #标记第一个分组的异常值
-x = p['fliers'][0].get_xdata() # 'flies'即为异常值的标签.[0]是用来标注第1位歌手的异常值数值,同理[i]标注第i+1位歌手的异常值.
+x = p['fliers'][0].get_xdata() # 'flies'即为异常值的标签.[0]是用来标注第1分组的异常值数值,同理[i]标注第i+1分组的异常值.
 y = p['fliers'][0].get_ydata()
 y.sort() #从小到大排序
 
